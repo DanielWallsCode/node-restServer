@@ -47,5 +47,14 @@ const existeProductoPorId = async(id) => {
        }
     }
     
+// Validar Colecciones Permitidas
+const coleccionesPermitidas = (coleccion = '', colecciones = []) =>{
+        const incluida = colecciones.includes(coleccion);
+        if(!incluida){
+                throw new Error(`La coleccion ${coleccion} no es permitida, ${colecciones}`)
+        }
 
-export {esRoleValido,emailExiste,existeUsuarioPorId, existeCategoriaPorId,existeProductoPorId};
+        return true;
+}
+
+export {esRoleValido, emailExiste, existeUsuarioPorId, existeCategoriaPorId, existeProductoPorId, coleccionesPermitidas};
